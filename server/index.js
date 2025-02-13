@@ -5,6 +5,15 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { User } = require("./models/User");
 const { auth } = require("./middleware/auth");
+const cors = require("cors"); // cors 모듈 추가
+
+// CORS 설정 추가
+app.use(
+  cors({
+    origin: "http://localhost:3000", // React 앱의 주소
+    credentials: true,
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
