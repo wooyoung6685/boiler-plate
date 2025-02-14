@@ -23,3 +23,10 @@ export const registerUser = createAsyncThunk(
     return response.data;
   }
 );
+
+export const auth = createAsyncThunk("user/auth", async () => {
+  const response = await axios.get("/api/users/auth", {
+    withCredentials: true,
+  });
+  return response.data;
+});
